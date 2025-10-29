@@ -1,0 +1,34 @@
+replicaCount: 2
+
+image:
+  repository: registry.digitalocean.com/ruhi-creg/hextris-app
+  tag: "latest"
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 80
+
+resources:
+  requests:
+    cpu: 10m
+    memory: 32Mi
+  limits:
+    cpu: 50m
+    memory: 64Mi
+
+ingress:
+  enabled: true
+  className: "nginx"
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+  hosts:
+    - host: roohi.mecarvi.com
+      paths:
+        - path: /
+          pathType: Prefix
+  tls:
+    - secretName: hextris-tls
+      hosts:
+        - roohi.mecarvi.com
