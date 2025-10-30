@@ -4,26 +4,6 @@ This repository contains a declarative Jenkins pipeline (`Jenkinsfile`) that bui
 
 ---
 
-## Table of Contents
-- [Pipeline Overview](#pipeline-overview)
-- [Infrastructure & Credentials Prerequisites](#infrastructure--credentials-prerequisites)
-- [Kubernetes Agent Pod Layout](#kubernetes-agent-pod-layout)
-- [Environment Variables](#environment-variables)
-- [Stage-by-Stage Breakdown](#stage-by-stage-breakdown)
-  - [Checkout](#checkout)
-  - [Check if Image Exists](#check-if-image-exists)
-  - [Build and Push Image](#build-and-push-image)
-- [Post Actions](#post-actions)
-- [Real-Time Usage Scenarios](#real-time-usage-scenarios)
-  - [Scenario 1: First-Time Build of a New Commit](#scenario-1-first-time-build-of-a-new-commit)
-  - [Scenario 2: Re-running for an Existing Commit](#scenario-2-re-running-for-an-existing-commit)
-  - [Scenario 3: Build Fails Midway](#scenario-3-build-fails-midway)
-  - [Scenario 4: Adapting the Pipeline for a Hotfix Repo](#scenario-4-adapting-the-pipeline-for-a-hotfix-repo)
-- [Operational Notes & Customization Tips](#operational-notes--customization-tips)
-- [Troubleshooting Checklist](#troubleshooting-checklist)
-
----
-
 ## Pipeline Overview
 - **Purpose:** Build Docker images for the `hextris-app` project and push them to `registry.digitalocean.com/ruhi-creg` tagged with both the short Git SHA and `latest`.
 - **Idempotency:** If the image for a specific commit already exists, the pipeline skips the build to avoid unnecessary work.
