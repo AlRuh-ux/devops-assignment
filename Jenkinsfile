@@ -53,7 +53,7 @@ spec:
         ])
         script {
           env.GIT_COMMIT_SHORT = sh(
-            script: "git rev-parse --short=8 HEAD",
+            script: "git rev-parse --short=7 HEAD",
             returnStdout: true
           ).trim()
           echo "Repository checked out successfully"
