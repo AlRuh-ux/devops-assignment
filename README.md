@@ -1,6 +1,6 @@
 # Hextris Deployment Playbook
 
-This README documents the exact workflow used to provision infrastructure on DigitalOcean, push container images, install the required Kubernetes add-ons, and deploy the Hextris web application. It consolidates the step-by-step notes from the original run and ties them back to the files that live in this repository so the entire process is repeatable.
+This README documents the exact workflow used to provision infrastructure on DigitalOcean, push container images, install the required Kubernetes add-ons, and deploy the Hextris web application.
 
 ---
 
@@ -226,8 +226,8 @@ Adjust these values if you operate in a different registry, namespace, or domain
 ```powershell
 cd helm
 helm upgrade --install hextris ./hextris --namespace hextris --create-namespace
-helm list
-helm get manifest hextris
+helm list -A
+helm get manifest hextris -n hextris
 ```
 
 ### 3. Verify Workloads
