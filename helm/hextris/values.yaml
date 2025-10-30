@@ -3,7 +3,7 @@ replicaCount: 2
 image:
   repository: registry.digitalocean.com/ruhi-creg/hextris-app
   tag: "latest"
-  pullPolicy: IfNotPresent
+  pullPolicy: Always # Set to IfNotPresent, if you don't want to pull the images each time
 
 service:
   type: ClusterIP
